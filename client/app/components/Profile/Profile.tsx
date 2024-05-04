@@ -106,9 +106,9 @@ import { useLogOutQuery } from "../../../redux/features/auth/authApi";
 import { signOut } from "next-auth/react";
 import ProfileInfo from "./ProfileInfo";
 import ChangePassword from "./ChangePassword";
-import CourseCard from "../Course/CourseCard";
 import { useGetUsersAllCoursesQuery } from "@/redux/features/courses/coursesApi";
 import GiveCount from "./GiveCount";
+import YourToken from "./YourToken";
 
 type Props = {
   user: any;
@@ -194,6 +194,18 @@ const Profile: FC<Props> = ({ user }) => {
           userName={user.name} // Assuming userName is the correct prop name
         />
       )}
+      {active === 4 && (
+        <div className="w-full h-full bg-transparent mt-[80px]">
+          <YourToken
+            breakfastExpiration={5}
+            lunchExpiration={15}
+            dinnerExpiration={25}
+          />
+        </div>
+      )}
+
+
+
     </div>
   );
 };
